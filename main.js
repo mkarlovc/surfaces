@@ -25,27 +25,27 @@ async function init() {
     img.loading = 'lazy';
     el.appendChild(img);
 
-    // Loosely alternate zones, with some overlap allowed
+    // Alternate zones with less overlap
     let x;
     if (lastZone === 'right') {
-      x = 3 + Math.random() * 35; // Left-ish: 3-38%
+      x = 3 + Math.random() * 30; // Left zone: 3-33%
       lastZone = 'left';
     } else {
-      x = 35 + Math.random() * 30; // Right-ish: 35-65%
+      x = 40 + Math.random() * 25; // Right zone: 40-65%
       lastZone = 'right';
     }
     el.style.left = `${x}%`;
 
-    // Vertical spacing - enough room but not too strict
-    const spacing = 50 + Math.random() * 45; // 50-95vh between images
+    // Vertical spacing - a bit more room
+    const spacing = 55 + Math.random() * 50; // 55-105vh between images
     el.style.top = `${currentY}vh`;
     currentY += spacing;
 
     surface.appendChild(el);
   });
 
-  // Set surface height
-  surface.style.height = `${currentY + 50}vh`;
+  // Set surface height with extra padding before footer
+  surface.style.height = `${currentY + 80}vh`;
 
   // Intersection Observer for reveal
   const observer = new IntersectionObserver(
