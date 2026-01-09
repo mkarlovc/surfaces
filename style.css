@@ -136,6 +136,7 @@ body {
 .landing-more {
   cursor: pointer;
   transition: color 0.3s ease;
+  opacity: 1;
 }
 
 .landing-more:hover {
