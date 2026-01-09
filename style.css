@@ -148,7 +148,8 @@ body {
   transition: color 0.3s ease;
 }
 
-.landing-contact a:visited {
+.landing-contact a:visited,
+.landing-contact a:active {
   color: #a0a0a0;
 }
 
@@ -177,7 +178,7 @@ body {
   font-family: 'Botanika Mono', 'Space Mono', 'SF Mono', monospace;
   font-size: 0.8125rem;
   letter-spacing: 0.03em;
-  color: var(--text-muted);
+  color: #a0a0a0;
   text-transform: lowercase;
 }
 
@@ -188,18 +189,19 @@ body {
   font-family: 'Botanika Mono', 'Space Mono', 'SF Mono', monospace;
   font-size: 0.8125rem;
   letter-spacing: 0.03em;
-  color: var(--text-muted);
+  color: #a0a0a0;
   text-transform: lowercase;
 }
 
 .footer a {
-  color: var(--text-muted);
+  color: #a0a0a0;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
-.footer a:visited {
-  color: var(--text-muted);
+.footer a:visited,
+.footer a:active {
+  color: #a0a0a0;
 }
 
 .footer a:hover {
