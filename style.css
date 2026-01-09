@@ -102,6 +102,17 @@ body {
   }
 }
 
+/* Header */
+.header {
+  padding: 4rem 0;
+  text-align: center;
+  font-family: 'Botanika Mono', 'Space Mono', 'SF Mono', monospace;
+  font-size: 0.8125rem;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+  text-transform: lowercase;
+}
+
 /* Footer */
 .footer {
   padding: 4rem 0;
