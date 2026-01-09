@@ -56,7 +56,9 @@ body {
   font-size: 0.75rem;
   line-height: 1.7;
   letter-spacing: 0.02em;
-  color: #a0a0a0;
+  color: #ffffff;
+  background: rgba(160, 160, 160, 0.85);
+  padding: 0.4rem 0.6rem;
   opacity: 0;
   transition: opacity 1.4s ease-out;
 }
@@ -69,6 +71,7 @@ body {
   .text-fragment {
     max-width: 85vw;
     font-size: 0.7rem;
+    padding: 0.3rem 0.5rem;
   }
 }
 
