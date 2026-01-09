@@ -21,9 +21,12 @@ async function init() {
   let lastZone = 'right'; // Track last horizontal zone to alternate
   let textIndex = 0;
 
+  // Calculate interval to show all text fragments
+  const textInterval = Math.max(1, Math.floor(images.length / textFragments.length));
+
   images.forEach((item, index) => {
-    // Insert text fragment every 2 images
-    if (index > 0 && index % 2 === 0 && textIndex < textFragments.length) {
+    // Insert text fragment evenly distributed
+    if (index > 0 && index % textInterval === 0 && textIndex < textFragments.length) {
       const textEl = document.createElement('div');
       textEl.className = 'text-fragment';
       textEl.textContent = textFragments[textIndex];
@@ -92,7 +95,7 @@ async function init() {
     observer.observe(el);
   });
 
-  // Lightbox
+  // Lightbox for images
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = lightbox.querySelector('img');
 
@@ -107,9 +110,26 @@ async function init() {
     lightbox.classList.remove('active');
   });
 
+  // Textbox for full text
+  const textbox = document.getElementById('textbox');
+  const textboxContent = document.getElementById('textbox-content');
+  const fullText = textFragments.join('\n\n');
+
+  document.querySelectorAll('.text-fragment').forEach((fragment) => {
+    fragment.addEventListener('click', () => {
+      textboxContent.textContent = fullText;
+      textbox.classList.add('active');
+    });
+  });
+
+  textbox.addEventListener('click', () => {
+    textbox.classList.remove('active');
+  });
+
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       lightbox.classList.remove('active');
+      textbox.classList.remove('active');
     }
   });
 }
