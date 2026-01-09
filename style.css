@@ -134,27 +134,21 @@ body {
   margin-bottom: 1.5rem;
 }
 
-.landing-more {
-  font-family: 'Botanika Mono', 'Space Mono', 'SF Mono', monospace;
-  font-size: 0.8125rem;
-  letter-spacing: 0.03em;
-  color: var(--text-muted);
-  text-transform: lowercase;
-  cursor: pointer;
-  margin-bottom: 1rem;
-  transition: color 0.3s ease;
-}
-
-.landing-more:hover {
-  color: var(--text);
-}
-
 .landing-contact {
   font-family: 'Botanika Mono', 'Space Mono', 'SF Mono', monospace;
   font-size: 0.8125rem;
   letter-spacing: 0.03em;
   color: var(--text-muted);
   text-transform: lowercase;
+}
+
+.landing-more {
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.landing-more:hover {
+  color: var(--text);
 }
 
 .landing-contact a {
