@@ -108,8 +108,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  padding: 1.5rem 2rem 2rem;
+  justify-content: center;
+  padding: 2rem;
   text-align: center;
 }
 
@@ -118,8 +118,8 @@ body {
 }
 
 .landing-image {
-  max-width: 92vw;
-  max-height: 70vh;
+  max-width: 95vw;
+  max-height: 80vh;
   object-fit: contain;
   cursor: pointer;
   margin-bottom: 1.5rem;
@@ -137,6 +137,7 @@ body {
   cursor: pointer;
   transition: color 0.3s ease;
   opacity: 1;
+  color: #a0a0a0;
 }
 
 .landing-more:hover {
@@ -158,7 +159,7 @@ body {
   color: var(--text);
 }
 
-.landing-contact span {
+.landing-contact span:not(.landing-more) {
   margin: 0 1rem;
   opacity: 0.3;
 }
