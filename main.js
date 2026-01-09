@@ -65,6 +65,27 @@ async function init() {
   document.querySelectorAll('.element').forEach((el) => {
     observer.observe(el);
   });
+
+  // Lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = lightbox.querySelector('img');
+
+  document.querySelectorAll('.element img').forEach((img) => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightbox.classList.add('active');
+    });
+  });
+
+  lightbox.addEventListener('click', () => {
+    lightbox.classList.remove('active');
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      lightbox.classList.remove('active');
+    }
+  });
 }
 
 // Fisher-Yates shuffle
