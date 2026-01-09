@@ -1,7 +1,15 @@
 async function init() {
-  const response = await fetch('config.json');
-  let images = await response.json();
+  const [configResponse, textResponse] = await Promise.all([
+    fetch('config.json'),
+    fetch('texts/surfaces.txt')
+  ]);
+
+  let images = await configResponse.json();
+  const textContent = await textResponse.text();
   const surface = document.getElementById('surface');
+
+  // Project text fragments (one per line in surfaces.txt)
+  const textFragments = textContent.split('\n').filter(line => line.trim());
 
   // Shuffle order
   images = shuffle(images);
@@ -11,8 +19,26 @@ async function init() {
 
   let currentY = 15; // Start position in vh
   let lastZone = 'right'; // Track last horizontal zone to alternate
+  let textIndex = 0;
 
   images.forEach((item, index) => {
+    // Insert text fragment every 3-4 images
+    if (index > 0 && index % 3 === 0 && textIndex < textFragments.length) {
+      const textEl = document.createElement('div');
+      textEl.className = 'text-fragment';
+      textEl.textContent = textFragments[textIndex];
+
+      // Position text
+      const textX = 10 + Math.random() * 50;
+      textEl.style.left = `${textX}%`;
+      textEl.style.top = `${currentY}vh`;
+
+      surface.appendChild(textEl);
+
+      currentY += 30 + Math.random() * 20;
+      textIndex++;
+    }
+
     const el = document.createElement('div');
 
     // Random size (or use defined)
@@ -62,7 +88,7 @@ async function init() {
     }
   );
 
-  document.querySelectorAll('.element').forEach((el) => {
+  document.querySelectorAll('.element, .text-fragment').forEach((el) => {
     observer.observe(el);
   });
 

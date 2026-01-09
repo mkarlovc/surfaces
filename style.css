@@ -48,6 +48,30 @@ body {
   cursor: pointer;
 }
 
+/* Text fragments */
+.text-fragment {
+  position: absolute;
+  max-width: 45vw;
+  font-family: 'Botanika Mono', 'Space Mono', 'SF Mono', monospace;
+  font-size: 0.75rem;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+  color: #a0a0a0;
+  opacity: 0;
+  transition: opacity 1.4s ease-out;
+}
+
+.text-fragment.visible {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .text-fragment {
+    max-width: 85vw;
+    font-size: 0.7rem;
+  }
+}
+
 /* Lightbox */
 .lightbox {
   position: fixed;
