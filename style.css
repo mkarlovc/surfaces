@@ -52,7 +52,7 @@ body {
 .lightbox {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.92);
+  background: rgba(248, 247, 245, 0.97);
   display: flex;
   align-items: center;
   justify-content: center;
