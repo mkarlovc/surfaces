@@ -121,18 +121,29 @@ async function init() {
 
   // Textbox for full text
   const textbox = document.getElementById('textbox');
-  const textboxContent = document.getElementById('textbox-content');
+  const textboxText = document.getElementById('textbox-text');
   const fullText = textFragments.join('\n\n');
 
   document.querySelectorAll('.text-fragment').forEach((fragment) => {
     fragment.addEventListener('click', () => {
-      textboxContent.textContent = fullText;
+      textboxText.textContent = fullText;
       textbox.classList.add('active');
     });
   });
 
-  textbox.addEventListener('click', () => {
-    textbox.classList.remove('active');
+  textbox.addEventListener('click', (e) => {
+    if (e.target === textbox) {
+      textbox.classList.remove('active');
+    }
+  });
+
+  // Copy to clipboard
+  const copyBtn = document.getElementById('textbox-copy');
+  copyBtn.addEventListener('click', async (e) => {
+    e.stopPropagation();
+    await navigator.clipboard.writeText(fullText);
+    copyBtn.classList.add('copied');
+    setTimeout(() => copyBtn.classList.remove('copied'), 300);
   });
 
   document.addEventListener('keydown', (e) => {

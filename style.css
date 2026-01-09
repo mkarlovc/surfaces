@@ -124,6 +124,7 @@ body {
 }
 
 .textbox-content {
+  position: relative;
   max-width: 700px;
   font-family: 'Botanika Mono', 'Space Mono', 'SF Mono', monospace;
   font-size: 0.85rem;
@@ -139,6 +140,31 @@ body {
     font-size: 0.75rem;
     padding: 1.5rem;
   }
+}
+
+.textbox-text {
+  white-space: pre-wrap;
+}
+
+.textbox-copy {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  color: #a0a0a0;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.textbox-copy:hover {
+  color: #ffffff;
+}
+
+.textbox-copy.copied {
+  opacity: 0.5;
 }
 
 /* Size variations */
