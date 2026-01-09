@@ -1,27 +1,6 @@
 async function init() {
   const response = await fetch('config.json');
   let images = await response.json();
-
-  // Landing page
-  const landing = document.getElementById('landing');
-  const landingImage = document.getElementById('landing-image');
-  const landingMore = document.getElementById('landing-more');
-  const gallery = document.getElementById('gallery');
-
-  // Pick random image for landing
-  const randomImage = images[Math.floor(Math.random() * images.length)];
-  landingImage.src = `images/${randomImage.src}`;
-
-  // Show gallery on click
-  function showGallery() {
-    landing.classList.add('hidden');
-    gallery.classList.add('active');
-  }
-
-  landingImage.addEventListener('click', showGallery);
-  landingMore.addEventListener('click', showGallery);
-
-  // Gallery setup
   const surface = document.getElementById('surface');
 
   // Shuffle order
