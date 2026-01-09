@@ -122,7 +122,7 @@ async function init() {
   // Textbox for full text
   const textbox = document.getElementById('textbox');
   const textboxText = document.getElementById('textbox-text');
-  const fullText = textFragments.join('\n\n');
+  const fullText = textFragments.join('\n');
 
   document.querySelectorAll('.text-fragment').forEach((fragment) => {
     fragment.addEventListener('click', () => {
