@@ -22,8 +22,8 @@ async function init() {
   let textIndex = 0;
 
   images.forEach((item, index) => {
-    // Insert text fragment every 3-4 images
-    if (index > 0 && index % 3 === 0 && textIndex < textFragments.length) {
+    // Insert text fragment every 2 images
+    if (index > 0 && index % 2 === 0 && textIndex < textFragments.length) {
       const textEl = document.createElement('div');
       textEl.className = 'text-fragment';
       textEl.textContent = textFragments[textIndex];
