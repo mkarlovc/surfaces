@@ -49,9 +49,18 @@ async function init() {
     el.className = `element size-${size}`;
 
     const img = document.createElement('img');
-    img.src = `images/${item.src}`;
+    const isMobile = window.innerWidth <= 768;
+    const photoFolder = isMobile ? 'photos_small' : 'photos';
+    img.src = `${photoFolder}/${item.src}`;
     img.alt = '';
     img.loading = 'lazy';
+    // Fallback to full size if small version doesn't exist
+    if (isMobile) {
+      img.onerror = function() {
+        this.onerror = null;
+        this.src = `photos/${item.src}`;
+      };
+    }
     el.appendChild(img);
 
     // Alternate zones with less overlap

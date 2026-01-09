@@ -1,12 +1,12 @@
 #!/bin/bash
-# Scans /images folder and generates config.json
+# Scans /photos folder and generates config.json
 
 cd "$(dirname "$0")"
 
 echo "[" > config.json
 
 first=true
-for file in images/*; do
+for file in photos/*; do
   [ -f "$file" ] || continue
 
   # Check if it's an image
