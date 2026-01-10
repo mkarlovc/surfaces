@@ -6,15 +6,15 @@ async function init() {
   const randomImage = images[Math.floor(Math.random() * images.length)];
   const img = document.getElementById('landing-image');
   const isMobile = window.innerWidth <= 768;
-  const photoFolder = isMobile ? 'photos_small' : 'photos';
+  const photoFolder = isMobile ? 'small' : 'normal';
 
-  img.src = `${photoFolder}/${randomImage.src}`;
+  img.src = `photos/surfaces/${photoFolder}/${randomImage.src}`;
 
   // Fallback to full size if small version doesn't exist
   if (isMobile) {
     img.onerror = function() {
       this.onerror = null;
-      this.src = `photos/${randomImage.src}`;
+      this.src = `photos/surfaces/normal/${randomImage.src}`;
     };
   }
 }

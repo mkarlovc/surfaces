@@ -1,14 +1,14 @@
 async function init() {
   const [configResponse, textResponse] = await Promise.all([
-    fetch('config.json'),
-    fetch('texts/surfaces.txt')
+    fetch('config_pit.json'),
+    fetch('texts/pit.txt')
   ]);
 
   let images = await configResponse.json();
   const textContent = await textResponse.text();
   const surface = document.getElementById('surface');
 
-  // Project text fragments (one per line in surfaces.txt)
+  // Project text fragments (one per line in pit.txt)
   const textFragments = textContent.split('\n').filter(line => line.trim());
 
   // Shuffle order
@@ -51,14 +51,14 @@ async function init() {
     const img = document.createElement('img');
     const isMobile = window.innerWidth <= 768;
     const photoFolder = isMobile ? 'small' : 'normal';
-    img.src = `photos/surfaces/${photoFolder}/${item.src}`;
+    img.src = `photos/pit/${photoFolder}/${item.src}`;
     img.alt = '';
     img.loading = 'lazy';
     // Fallback to full size if small version doesn't exist
     if (isMobile) {
       img.onerror = function() {
         this.onerror = null;
-        this.src = `photos/surfaces/normal/${item.src}`;
+        this.src = `photos/pit/normal/${item.src}`;
       };
     }
     el.appendChild(img);
